@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VibrantForm should render the component with mock data 1`] = `
-<VibrantForm
-  fields={
+<Form
+  fieldsData={
     Array [
       Object {
         "label": "labelA",

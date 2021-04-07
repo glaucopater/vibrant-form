@@ -1,4 +1,4 @@
-import { FormFieldType } from "../components/Vibrant/types";
+import { FormFieldType } from "../containers/Form/types";
 
 export const mockFields: FormFieldType[] = [
     {
