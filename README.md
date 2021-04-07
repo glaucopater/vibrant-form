@@ -1,2 +1,2 @@
 # vibrant-form
-Created with CodeSandbox
+A react typescript form component
