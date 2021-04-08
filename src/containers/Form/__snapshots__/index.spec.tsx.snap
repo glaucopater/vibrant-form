@@ -5,15 +5,17 @@ exports[`VibrantForm should render the component with mock data 1`] = `
   fieldsData={
     Array [
       Object {
-        "label": "labelA",
+        "isRequired": true,
+        "name": "labelA",
         "value": 100,
       },
       Object {
-        "label": "labelB",
+        "isRequired": true,
+        "name": "labelB",
         "value": 200,
       },
       Object {
-        "label": "labelC",
+        "name": "labelC",
         "value": 300,
       },
     ]

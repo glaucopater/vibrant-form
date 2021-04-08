@@ -2,15 +2,17 @@ import { FormFieldType } from "../containers/Form/types";
 
 export const mockFields: FormFieldType[] = [
     {
-        label: "labelA",
+        name: "labelA",
         value: 100,
+        isRequired: true
     },
     {
-        label: "labelB",
+        name: "labelB",
         value: 200,
+        isRequired: true
     },
     {
-        label: "labelC",
+        name: "labelC",
         value: 300,
     },
 ];

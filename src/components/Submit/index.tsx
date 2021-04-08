@@ -1,23 +1,12 @@
 
 import React from "react";
-import { validateFormField } from "../../containers/Form/helpers";
-import { strings } from "../../containers/Form/strings";
+import { dictionary } from "../../dictionary";
 import "./styles.css";
 
 const Submit: React.FC = () => {
-
-    const handleOnSubmit = (e: any) => {
-        e.preventDefault();
-        console.log(e.target);
-        return false;
-        // validateFormField();
-
-    }
-
-
     return (
         <div className="vibrantFormActions">
-            <input className="vibrantFormSubmitButton" onSubmit={handleOnSubmit} type="submit" value={strings.submit} />
+            <input className="vibrantFormSubmitButton" type="submit" value={dictionary.submit} />
         </div>
     );
 }

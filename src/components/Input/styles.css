@@ -1,14 +1,14 @@
-.vibrantFormLabelValue {
+.vibrantFormInput {
     display: flex;
     padding: 8px;
     margin: 8px;
-    border: 1px solid red;
+    border: 1px solid gold;
 }
 
 .vibrantFormLabel {
     padding: 8px;
 }
 
-.vibrantFormInput {
+.vibrantFormInputText {
     padding: 8px;
 }
