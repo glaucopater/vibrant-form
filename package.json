@@ -1,7 +1,8 @@
 {
-  "name": "vibrant",
+  "name": "vibrant-form",
   "version": "1.0.0",
-  "description": "",
+  "description": "a generic react form component",
+  "author": "Glauco Pater",
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {

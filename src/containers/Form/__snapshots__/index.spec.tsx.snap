@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VibrantForm should render the component with mock data 1`] = `
+<Form
+  fieldsData={
+    Array [
+      Object {
+        "isRequired": true,
+        "name": "labelA",
+        "value": 100,
+      },
+      Object {
+        "isRequired": true,
+        "name": "labelB",
+        "value": 200,
+      },
+      Object {
+        "name": "labelC",
+        "value": 300,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`VibrantForm should render the empty component 1`] = `[Function]`;
