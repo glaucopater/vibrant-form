@@ -1,12 +1,15 @@
 import Form from "./containers/Form";
-import "./styles.css";
+import { FormPropsType } from "./types";
 import { mockFields } from "./__mocks__/index";
+import { dictionary } from "./dictionary";
+import "./styles.css";
 
 export default function App() {
+  const formProps: FormPropsType = { fieldsData: mockFields };
   return (
     <div className="App">
-      <h1>Vibrant Form Demo</h1>
-      <Form fieldsData={mockFields} />
+      <h1 className="appTitle">{dictionary.appTitle}</h1>
+      <Form {...formProps} />
     </div>
   );
 }

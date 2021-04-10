@@ -1,14 +1,84 @@
+:root {
+    --text-shadows: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    --box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    --custom-border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .vibrantFormInput {
     display: flex;
-    padding: 8px;
-    margin: 8px;
-    border: 1px solid gold;
+    flex-direction: column;
 }
 
 .vibrantFormLabel {
-    padding: 8px;
+    color: #fff;
+    font-size: 16px;
+    opacity: 0.7;
+    text-shadow: var(--text-shadow);
+    align-self: flex-start;
+    padding: 4px 0;
+    text-transform: capitalize;
 }
 
 .vibrantFormInputText {
-    padding: 8px;
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
+    border-left: var(--custom-border);
+    border-top: var(--custom-border);
+    border-radius: 5000px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--box-shadow);
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: var(--text-shadow);
+    opacity: 0.7;
+    outline: none;
+}
+
+.vibrantFormInputText:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: var(--box-shadow);
+}
+
+.vibrantFormInputText[type="text"]:focus {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: var(--box-shadow);
+    opacity: 1;
+}
+
+.vibrantFormInputText[type="button"] {
+    margin-top: 10px;
+    width: 150px;
+    font-size: 1rem;
+}
+
+.vibrantFormInputText[type="button"]:hover {
+    cursor: pointer;
+}
+
+.vibrantFormInputText[type="button"]:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+::-moz-placeholder {
+    font-weight: 400;
+    color: #fff;
+    text-shadow: var(--text-shadow);
+}
+
+:-ms-input-placeholder {
+    font-weight: 400;
+    color: #fff;
+    text-shadow: var(--text-shadow);
+}
+
+::placeholder {
+    font-weight: 400;
+    color: #fff;
+    text-shadow: var(--text-shadow);
 }

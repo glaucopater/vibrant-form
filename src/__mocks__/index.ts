@@ -1,18 +1,23 @@
-import { FormFieldType } from "../containers/Form/types";
+import { DataType } from "../types";
 
-export const mockFields: FormFieldType[] = [
+export const mockFields: DataType[] = [
     {
-        name: "labelA",
-        value: 100,
+        name: "Full Name",
+        value: "John Doe",
         isRequired: true
     },
     {
-        name: "labelB",
-        value: 200,
-        isRequired: true
+        name: "role",
+        value: "Designer",
     },
     {
-        name: "labelC",
-        value: 300,
+        name: "department",
+        value: "wooga.dev",
+        pattern: "wooga.",
     },
+    {
+        name: "salary",
+        minValue: 1000,
+        isRequired: true
+    }
 ];

@@ -1,46 +1,61 @@
-import React from "react";
-import Input from "../../components/Input";
-import { FormPropsType, IValidationErrors, FormFieldType } from "./types";
+import React, { FormEvent } from "react";
 import Submit from "../../components/Submit";
-import { defaultProps } from "../../settings";
-import { validateFormField } from "../../helpers";
+import settings from "../../settings";
+import { transformDataIntoFormField, validateForm } from "../../helpers";
+import ValidationError from "../../components/ValidationErrror";
+import { FormPropsType, TransformedDataType, ValidationErrorType } from "../../types";
+import InputFields from "../../components/InputFields";
 import "./styles.css";
+import Errors from "../../components/Errors";
 
 const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
-  const [state, setState] = React.useState<FormPropsType["fieldsData"]>(fieldsData);
-  const [formErrors, setFormErrors] = React.useState<IValidationErrors["errors"]>(undefined);
+  const initialFormData = transformDataIntoFormField(fieldsData);
+  const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
+  const [formErrors, setFormErrors] = React.useState<ValidationErrorType[][]>([]);
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
-  const handleOnSubmit = (e: any) => {
+
+  const sendData = () => {
+    const timeout = setTimeout(() => {
+      setIsSubmitting(false);
+    }, 3000);
+  }
+
+  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const errs = validateForm(formData, fieldsData);
+    const checkErrors = errs.filter(err => err.length !== 0)
+    setFormErrors(errs);
+
+    if (checkErrors.length === 0) {
+      setIsSubmitting(true);
+      sendData();
+    }
+    else
+      console.log("not submitting");
   }
 
-  const handleOnChange = (e: { target: { value: string | number } }, name: string, isRequired?: boolean) => {
-    const error = validateFormField({ name, value: e.target.value, isRequired });
-    let currentErrors;
-    if (error) {
-      currentErrors = [...formErrors || [], error];
-    }
-    else if (formErrors && formErrors?.length > 0) {
-      currentErrors = formErrors.filter(err => err.name !== name);
-    }
-    setFormErrors(currentErrors);
+  const handleOnChange = (e: any) => {
+    updateFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   }
 
-  const fields = state ?
-    state.map((field, index) =>
-      <Input
-        key={index.toString()}
-        {...field}
-        errors={formErrors?.filter(err => err.name === field.name)}
-        onChange={handleOnChange}
-      />)
-    : null;
+  const formProps = {
+    ...settings,
+    onSubmit: handleOnSubmit,
+    onChange: handleOnChange
+  }
 
   return (
-    <form className="vibrantForm" {...defaultProps} onSubmit={handleOnSubmit}>
-      {fields}
-      <Submit />
-    </form>
+    <section className="vibrantFormContainer">
+      <form className="vibrantForm" {...formProps}>
+        <InputFields fieldsData={fieldsData} />
+        <Submit isSubmitting={isSubmitting} />
+      </form>
+      <Errors formErrors={formErrors} />
+    </section>
   );
 }
 
