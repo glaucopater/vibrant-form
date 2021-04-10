@@ -1,50 +1,55 @@
 import React from "react";
 import Input from "../../components/Input";
-import { FormPropsType, IValidationErrors, FormStateType } from "../../types";
+import { FormPropsType, ValidationErrorType, TransformedDataType } from "../../types";
 import Submit from "../../components/Submit";
 import { defaultProps } from "../../settings";
-import { validateFormField } from "../../helpers";
+import { transformDataIntoFormField, validateFormField } from "../../helpers";
 import "./styles.css";
+import ValidationError from "../../components/ValidationErrror";
 
 const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
-  const [state, setState] = React.useState<FormStateType>();
-  const [formErrors, setFormErrors] = React.useState<IValidationErrors["errors"]>(undefined);
+  const initialFormData = transformDataIntoFormField(fieldsData);
+  const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
+  const [formErrors, setFormErrors] = React.useState<ValidationErrorType[][]>([]);
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
-  const handleOnSubmit = (e: { preventDefault: () => void; }) => {
+  const handleOnSubmit = (e: any) => {
     e.preventDefault();
-    console.log("submitting", state);
+    const errs = validateForm();
+    const checkErrors = errs.filter(err => err.length !== 0)
+    setFormErrors(errs);
+
+    if (checkErrors.length === 0) {
+      setIsSubmitting(true);
+    }
+    else
+      console.log("not submitting");
   }
 
-  const handleOnInputChange = (e: { target: { value: string | number } },
-    name: string,
-    isRequired?: boolean,
-    pattern?: string
-  ) => {
-    const error = validateFormField({ name, value: e.target.value, isRequired, pattern });
-    let currentErrors;
-    if (error) {
-      currentErrors = [...formErrors || [], ...error];
-    }
-    else if (formErrors && formErrors?.length > 0) {
-      currentErrors = formErrors.filter(err => err.name !== name);
-    }
-    if (currentErrors)
-      setFormErrors(currentErrors);
+  const validateForm = () => {
+    const errs = Object.keys(formData).map(key => {
+      const fieldToValidate = fieldsData?.filter(field => key === field.name)[0];
+      if (fieldToValidate) {
+        const fieldValidationErrors = validateFormField({ ...fieldToValidate, value: formData[key] });
+        return fieldValidationErrors;
+      }
+      else return [];
+    });
+    return errs;
   }
 
   const handleOnChange = (e: any) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
-    })
+    if (formData)
+      updateFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
   }
 
   const fields = fieldsData && fieldsData.map((field, index) =>
     <Input
       key={index.toString()}
       {...field}
-      errors={formErrors?.filter(err => err.name === field.name)}
-      onChange={handleOnInputChange}
     />);
 
   const formProps = {
@@ -55,8 +60,9 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
 
   return (
     <form className="vibrantForm" {...formProps}>
+      {formErrors && formErrors.map((errors, index) => <ValidationError key={index.toString()} errors={errors} />)}
       {fields}
-      <Submit />
+      <Submit isSubmitting={isSubmitting} />
     </form >
   );
 }

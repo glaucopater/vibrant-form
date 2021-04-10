@@ -17,19 +17,19 @@ export type FormPropsType = {
     method?: string;
 }
 
-export type validationErrorType = {
+export type ValidationErrorType = {
     name: string;
     message: string;
 }
 
-export type IValidationErrors = {
-    errors?: validationErrorType[];
-}
-
-export type InputPropsType = DataType & IValidationErrors & {
-    onChange: (e: any,
+export type InputPropsType = DataType & {
+    onChange?: (e: any,
         name: DataType["name"],
         isRequired: DataType["isRequired"],
         pattern: DataType["pattern"],
     ) => void;
+}
+
+export type TransformedDataType = {
+    [key: string]: string | number | undefined
 }

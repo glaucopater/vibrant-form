@@ -1,10 +1,10 @@
 
 import React from "react";
-import { IValidationErrors } from "../../types";
+import { ValidationErrorType } from "../../types";
 import "./styles.css";
 
-const ValidationError: React.FC<IValidationErrors> = (props) => {
-    const content = props.errors && props.errors.map((error, index) =>
+const ValidationError: React.FC<{ errors: ValidationErrorType[] }> = ({ errors }) => {
+    const content = errors && errors.map((error, index) =>
         <li key={index.toString()}>
             {error.message}
         </li>

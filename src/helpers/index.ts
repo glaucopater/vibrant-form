@@ -1,9 +1,9 @@
-import { DataType, validationErrorType } from "../types";
+import { DataType, TransformedDataType, ValidationErrorType } from "../types";
 import { dictionary } from "../dictionary";
 
 export const validateFormField = (field: DataType) => {
-    const errors: validationErrorType[] = [];
-    if (field.isRequired && (!field.value || field.value === "")) {
+    let errors: ValidationErrorType[] = [];
+    if (field.isRequired && isNullOrEmpty(field.value)) {
         errors.push({
             name: field.name,
             message: dictionary.isRequired
@@ -21,6 +21,18 @@ export const validateFormField = (field: DataType) => {
     return errors;
 }
 
-export const transformDataIntoFormField = (data: DataType[]) => {
-    return data.map(item => ({ name: item.name, value: item.value }));
+
+export const transformDataIntoFormField = (data?: DataType[]) => {
+    if (!data) return {};
+    else {
+        const transformedData: TransformedDataType = {};
+        data.map(item => {
+            transformedData[item.name] = item.value;
+        });
+        return transformedData;
+    }
+}
+
+export const isNullOrEmpty = (val: string | number | undefined) => {
+    return (typeof val == 'undefined' || val === "");
 }
