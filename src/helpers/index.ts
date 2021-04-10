@@ -36,3 +36,16 @@ export const transformDataIntoFormField = (data?: DataType[]) => {
 export const isNullOrEmpty = (val: string | number | undefined) => {
     return (typeof val == 'undefined' || val === "");
 }
+
+
+export const validateForm = (formData: TransformedDataType, fieldsData: DataType[] | undefined) => {
+    const errs = Object.keys(formData).map(key => {
+        const fieldToValidate = fieldsData?.filter(field => key === field.name)[0];
+        if (fieldToValidate) {
+            const fieldValidationErrors = validateFormField({ ...fieldToValidate, value: formData[key] });
+            return fieldValidationErrors;
+        }
+        else return [];
+    });
+    return errs;
+}

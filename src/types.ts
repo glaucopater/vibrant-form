@@ -5,6 +5,7 @@ export type DataType = {
     value?: string | number;
     isRequired?: boolean;
     pattern?: string;
+    nativeValidation?: boolean;
 }
 
 export type FormFieldType = Pick<DataType, "name" | "value">;
@@ -23,11 +24,12 @@ export type ValidationErrorType = {
 }
 
 export type InputPropsType = DataType & {
-    onChange?: (e: any,
-        name: DataType["name"],
-        isRequired: DataType["isRequired"],
-        pattern: DataType["pattern"],
-    ) => void;
+    nativeValidation?: boolean
+}
+
+
+export type ErrorsPropsType = {
+    formErrors?: ValidationErrorType[][];
 }
 
 export type TransformedDataType = {
