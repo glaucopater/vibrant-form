@@ -1,9 +1,9 @@
 
 import React from "react";
-import { InputPropsType, FormFieldType } from "../../types";
+import { DataType, FormFieldType } from "../../types";
 import "./styles.css";
 
-const Input: React.FC<InputPropsType> = ({ name, value, isRequired, pattern, nativeValidation = false }) => {
+const Input: React.FC<DataType> = ({ name, value, type, isRequired, pattern, nativeValidation = false }) => {
     const [stateLabelValue] = React.useState<FormFieldType>({ name, value });
 
     const nativeValidationProps = {
@@ -15,20 +15,18 @@ const Input: React.FC<InputPropsType> = ({ name, value, isRequired, pattern, nat
     }
 
     return (
-        <>
-            <div className="vibrantFormInput">
-                <label className="vibrantFormLabel" htmlFor={`${name}InputText`}>
-                    {stateLabelValue.name}
-                </label>
-                <input className="vibrantFormInputText"
-                    id={`${name}InputText`}
-                    name={name}
-                    type="text"
-                    defaultValue={stateLabelValue.value}
-                    {...nativeValidationProps}
-                />
-            </div>
-        </>
+        <div className="vibrantFormInput">
+            <label className="vibrantFormLabel" htmlFor={`${name}InputText`}>
+                {stateLabelValue.name}
+            </label>
+            <input className="vibrantFormInputText"
+                id={`${name}InputText`}
+                name={name}
+                type={type}
+                defaultValue={stateLabelValue.value}
+                {...nativeValidationProps}
+            />
+        </div>
     );
 }
 
