@@ -1,6 +1,6 @@
 
 import React from "react";
-import { InputPropsType, FormFieldType } from "../../containers/Form/types";
+import { InputPropsType, FormFieldType } from "../../types";
 import ValidationError from "../ValidationErrror";
 import "./styles.css";
 

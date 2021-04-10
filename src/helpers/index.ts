@@ -1,4 +1,4 @@
-import { DataType } from "../containers/Form/types";
+import { DataType } from "../types";
 import { dictionary } from "../dictionary";
 
 export const validateFormField = (field: DataType) => {

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { IValidationErrors } from "../../containers/Form/types";
+import { IValidationErrors } from "../../types";
 import "./styles.css";
 
 const ValidationError: React.FC<IValidationErrors> = (props) => {

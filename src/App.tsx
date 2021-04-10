@@ -1,5 +1,5 @@
 import Form from "./containers/Form";
-import { FormPropsType } from "./containers/Form/types";
+import { FormPropsType } from "./types";
 import "./styles.css";
 import { mockFields } from "./__mocks__/index";
 

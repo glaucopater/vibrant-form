@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../../components/Input";
-import { FormPropsType, IValidationErrors, FormStateType } from "./types";
+import { FormPropsType, IValidationErrors, FormStateType } from "../../types";
 import Submit from "../../components/Submit";
 import { defaultProps } from "../../settings";
 import { validateFormField } from "../../helpers";
@@ -8,8 +8,6 @@ import "./styles.css";
 
 const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   const [state, setState] = React.useState<FormStateType>();
-
-
   const [formErrors, setFormErrors] = React.useState<IValidationErrors["errors"]>(undefined);
 
   const handleOnSubmit = (e: { preventDefault: () => void; }) => {
@@ -48,11 +46,17 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
 
   console.log(state);
 
+  const formProps = {
+    ...defaultProps,
+    onSubmit: handleOnSubmit,
+    onChange: handleOnChange
+  }
+
   return (
-    <form className="vibrantForm" {...defaultProps} onSubmit={handleOnSubmit} onChange={handleOnChange}>
+    <form className="vibrantForm" {...formProps}>
       {fields}
       <Submit />
-    </form>
+    </form >
   );
 }
 
