@@ -17,6 +17,7 @@ export const mockFields: DataType[] = [
         value: "wooga.dev",
         type: "text",
         pattern: "wooga.",
+        isRequired: true
     },
     {
         name: "salary",

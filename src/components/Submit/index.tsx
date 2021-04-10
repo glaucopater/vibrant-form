@@ -6,12 +6,11 @@ import "./styles.css";
 const Submit: React.FC<{ isSubmitting: boolean }> = ({ isSubmitting }) => {
     return (
         <div className="vibrantFormActions">
-            {isSubmitting && <span>{dictionary.sendingData}</span>}
-            {!isSubmitting &&
-                <input className="vibrantFormSubmitButton"
-                    type="submit"
-                    value={dictionary.submit}
-                    disabled={isSubmitting} />}
+            <input className={`vibrantFormSubmitButton${isSubmitting ? " submitting" : ""}`}
+                type="submit"
+                value={isSubmitting ? dictionary.sendingData : dictionary.submit}
+                disabled={isSubmitting}
+            />
         </div>
     );
 }

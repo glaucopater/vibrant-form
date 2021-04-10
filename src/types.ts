@@ -16,6 +16,7 @@ export type FormFieldType = Pick<DataType, "name" | "value">;
 
 export type FormPropsType = {
     fieldsData?: DataType[];
+    formErrors?: ErrorsPropsType["formErrors"];
     component?: React.FC<any>;
     action?: string;
     method?: string;
@@ -27,7 +28,7 @@ export type ValidationErrorType = {
 }
 
 export type ErrorsPropsType = {
-    formErrors?: ValidationErrorType[][];
+    formErrors?: ValidationErrorType[];
 }
 
 export type TransformedDataType = {
