@@ -2,11 +2,11 @@ import React, { FormEvent } from "react";
 import Submit from "../../components/Submit";
 import settings from "../../settings";
 import { transformDataIntoFormField, validateForm } from "../../helpers";
-import ValidationError from "../../components/ValidationErrror";
 import { FormPropsType, TransformedDataType, ValidationErrorType } from "../../types";
 import InputFields from "../../components/InputFields";
-import "./styles.css";
 import Errors from "../../components/Errors";
+import "./styles.css";
+
 
 const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   const initialFormData = transformDataIntoFormField(fieldsData);
@@ -14,9 +14,8 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[][]>([]);
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
-
   const sendData = () => {
-    const timeout = setTimeout(() => {
+    setTimeout(() => {
       setIsSubmitting(false);
     }, 3000);
   }
@@ -31,8 +30,6 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
       setIsSubmitting(true);
       sendData();
     }
-    else
-      console.log("not submitting");
   }
 
   const handleOnChange = (e: any) => {
@@ -51,7 +48,10 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   return (
     <section className="vibrantFormContainer">
       <form className="vibrantForm" {...formProps}>
-        <InputFields fieldsData={fieldsData} />
+        <InputFields
+          fieldsData={fieldsData}
+        // component={CustomInput}
+        />
         <Submit isSubmitting={isSubmitting} />
       </form>
       <Errors formErrors={formErrors} />

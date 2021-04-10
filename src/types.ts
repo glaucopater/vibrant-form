@@ -1,21 +1,22 @@
+import React from "react";
 
 
 export type DataType = {
     name: string;
     value?: string | number;
+    type: string;
     isRequired?: boolean;
     pattern?: string;
-    nativeValidation?: boolean;
     minValue?: number;
     maxValue?: number;
+    nativeValidation?: boolean;
 }
 
 export type FormFieldType = Pick<DataType, "name" | "value">;
 
-export type FormStateType = { [name: string]: FormFieldType };
-
 export type FormPropsType = {
     fieldsData?: DataType[];
+    component?: React.FC<any>;
     action?: string;
     method?: string;
 }
@@ -24,11 +25,6 @@ export type ValidationErrorType = {
     name: string;
     message: string;
 }
-
-export type InputPropsType = DataType & {
-    nativeValidation?: boolean
-}
-
 
 export type ErrorsPropsType = {
     formErrors?: ValidationErrorType[][];
