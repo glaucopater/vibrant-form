@@ -6,17 +6,23 @@ exports[`VibrantForm should render the component with mock data 1`] = `
     Array [
       Object {
         "isRequired": true,
-        "name": "labelA",
-        "value": 100,
+        "name": "firstname",
+        "pattern": "wooga.1",
+        "value": "John",
       },
       Object {
         "isRequired": true,
-        "name": "labelB",
-        "value": 200,
+        "name": "surname",
+        "pattern": "wooga.2",
+        "value": "Doe",
       },
       Object {
-        "name": "labelC",
+        "name": "title",
         "value": 300,
+      },
+      Object {
+        "name": "nationality",
+        "value": "",
       },
     ]
   }

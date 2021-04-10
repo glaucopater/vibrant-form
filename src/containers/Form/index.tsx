@@ -15,16 +15,21 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
     console.log("submitting", state);
   }
 
-  const handleOnInputChange = (e: { target: { value: string | number } }, name: string, isRequired?: boolean) => {
-    const error = validateFormField({ name, value: e.target.value, isRequired });
+  const handleOnInputChange = (e: { target: { value: string | number } },
+    name: string,
+    isRequired?: boolean,
+    pattern?: string
+  ) => {
+    const error = validateFormField({ name, value: e.target.value, isRequired, pattern });
     let currentErrors;
     if (error) {
-      currentErrors = [...formErrors || [], error];
+      currentErrors = [...formErrors || [], ...error];
     }
     else if (formErrors && formErrors?.length > 0) {
       currentErrors = formErrors.filter(err => err.name !== name);
     }
-    setFormErrors(currentErrors);
+    if (currentErrors)
+      setFormErrors(currentErrors);
   }
 
   const handleOnChange = (e: any) => {

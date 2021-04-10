@@ -6,7 +6,7 @@ import "./styles.css";
 const ValidationError: React.FC<IValidationErrors> = (props) => {
     const content = props.errors && props.errors.map((error, index) =>
         <li key={index.toString()}>
-            {error.name} {error.message}
+            {error.message}
         </li>
     );
     if (content)

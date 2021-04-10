@@ -4,13 +4,12 @@ export type DataType = {
     name: string;
     value?: string | number;
     isRequired?: boolean;
+    pattern?: string;
 }
 
 export type FormFieldType = Pick<DataType, "name" | "value">;
 
-
 export type FormStateType = { [name: string]: FormFieldType };
-
 
 export type FormPropsType = {
     fieldsData?: DataType[];
@@ -28,5 +27,9 @@ export type IValidationErrors = {
 }
 
 export type InputPropsType = DataType & IValidationErrors & {
-    onChange: (e: any, name: DataType["name"], isRequired: DataType["isRequired"]) => void;
+    onChange: (e: any,
+        name: DataType["name"],
+        isRequired: DataType["isRequired"],
+        pattern: DataType["pattern"],
+    ) => void;
 }
