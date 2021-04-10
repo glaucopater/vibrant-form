@@ -1,6 +1,8 @@
 export const dictionary = {
+    "appTitle": "Vibrant Form Demo",
     "submit": "Submit",
-    "isRequired": "is required",
+    "isRequired": "field is required",
     "shouldMatchPattern": "should match pattern",
-    "appTitle": "Vibrant Form Demo"
+    "shouldBeGreater": "value should be greater",
+    "sendingData": "Sending data..."
 }

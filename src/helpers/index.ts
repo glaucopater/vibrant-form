@@ -17,20 +17,25 @@ export const validateFormField = (field: DataType) => {
                 message: dictionary.shouldMatchPattern
             });
     }
-
+    if (field.minValue && field.value) {
+        if (field.value <= field.minValue) {
+            errors.push({
+                name: field.name,
+                message: dictionary.shouldBeGreater
+            });
+        }
+    }
     return errors;
 }
 
-
 export const transformDataIntoFormField = (data?: DataType[]) => {
     if (!data) return {};
-    else {
-        const transformedData: TransformedDataType = {};
-        data.map(item => {
-            transformedData[item.name] = item.value;
-        });
-        return transformedData;
-    }
+    const transformedData: TransformedDataType = {};
+    data.map(item => {
+        transformedData[item.name] = item.value;
+    });
+    return transformedData;
+
 }
 
 export const isNullOrEmpty = (val: string | number | undefined) => {

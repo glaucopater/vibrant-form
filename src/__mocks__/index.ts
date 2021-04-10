@@ -2,23 +2,22 @@ import { DataType } from "../types";
 
 export const mockFields: DataType[] = [
     {
-        name: "firstname",
-        value: "John",
-        isRequired: true,
-        pattern: "wooga.1"
+        name: "Full Name",
+        value: "John Doe",
+        isRequired: true
     },
     {
-        name: "surname",
-        value: "Doe",
-        isRequired: true,
-        pattern: "wooga.2"
+        name: "role",
+        value: "Designer",
     },
     {
-        name: "title",
-        value: 300,
+        name: "department",
+        value: "wooga.dev",
+        pattern: "wooga.",
     },
     {
-        name: "nationality",
-        value: "",
-    },
+        name: "salary",
+        minValue: 1000,
+        isRequired: true
+    }
 ];

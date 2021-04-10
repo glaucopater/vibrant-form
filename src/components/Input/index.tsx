@@ -24,6 +24,7 @@ const Input: React.FC<InputPropsType> = ({ name, value, isRequired, pattern, nat
                     id={`${name}InputText`}
                     name={name}
                     type="text"
+                    defaultValue={stateLabelValue.value}
                     {...nativeValidationProps}
                 />
             </div>

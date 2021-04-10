@@ -6,6 +6,8 @@ export type DataType = {
     isRequired?: boolean;
     pattern?: string;
     nativeValidation?: boolean;
+    minValue?: number;
+    maxValue?: number;
 }
 
 export type FormFieldType = Pick<DataType, "name" | "value">;

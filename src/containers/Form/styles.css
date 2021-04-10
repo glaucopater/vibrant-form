@@ -1,14 +1,3 @@
-/* .vibrantForm {
-  padding: 8px;
-  border: 1px solid salmon;
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-  place-items: flex-start;
-}
- */
-
-
 .vibrantForm {
   background: rgba(255, 255, 255, 0.3);
   padding: 3em;

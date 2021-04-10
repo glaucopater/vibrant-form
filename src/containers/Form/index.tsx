@@ -14,6 +14,13 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[][]>([]);
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
+
+  const sendData = () => {
+    const timeout = setTimeout(() => {
+      setIsSubmitting(false);
+    }, 3000);
+  }
+
   const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const errs = validateForm(formData, fieldsData);
@@ -22,17 +29,17 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
 
     if (checkErrors.length === 0) {
       setIsSubmitting(true);
+      sendData();
     }
     else
       console.log("not submitting");
   }
 
-  const handleOnChange = (e: FormEvent<HTMLFormElement>) => {
-    if (formData)
-      updateFormData({
-        ...formData,
-        [e.currentTarget.name]: e.currentTarget.value
-      });
+  const handleOnChange = (e: any) => {
+    updateFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   }
 
   const formProps = {
@@ -42,11 +49,13 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   }
 
   return (
-    <form className="vibrantForm" {...formProps}>
+    <section className="vibrantFormContainer">
+      <form className="vibrantForm" {...formProps}>
+        <InputFields fieldsData={fieldsData} />
+        <Submit isSubmitting={isSubmitting} />
+      </form>
       <Errors formErrors={formErrors} />
-      <InputFields fieldsData={fieldsData} />
-      <Submit isSubmitting={isSubmitting} />
-    </form >
+    </section>
   );
 }
 
