@@ -32,7 +32,6 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
       ...state,
       [e.target.name]: e.target.value
     })
-
   }
 
   const fields = fieldsData && fieldsData.map((field, index) =>
@@ -42,9 +41,6 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
       errors={formErrors?.filter(err => err.name === field.name)}
       onChange={handleOnInputChange}
     />);
-
-
-  console.log(state);
 
   const formProps = {
     ...defaultProps,

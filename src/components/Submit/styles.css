@@ -4,10 +4,9 @@
     --custom-border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-
 .vibrantFormSubmitButton {
     background: transparent;
-    width: 200px;
+    width: 100%;
     padding: 1em;
     margin-bottom: 2em;
     border: none;
