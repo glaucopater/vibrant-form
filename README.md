@@ -5,14 +5,14 @@ A react typescript form component
 
 Consideration
 ---
-I decided to follow an approach guided by data, so that the building of the form is related to the given props (which could also point to a rest endpoint in case). 
+
+1. 🏗 The <Form/> component. I decided to follow an approach guided by data, so that the building of the form is related to the given props (which could also point to a rest endpoint in case). 
 A different approach could be on receving children markup code, but this should imply more type check enforcement and less control.
+I want to highlight that all the library/packages in the market are usually more oriented to create a form context and apply it to a specific case. 
+2. 🧬 The component is pretty generic, all the logic (onChange event, validation and onSubmit) are managed by the <Form/> component.
+3. ✅ 🚫 Basic validation is implemented as described in the API
+4. 📦 The API
 
-Thanks to the datatype is possible to add more validation and input type, as well as is possible to customize by input type with a different component.
-
-The UI is a basic glassmorphism prototype, based on CSS flexbox and some css variables (no external libraries or pre processor were used).
-
-API
 ---
 
 import Form from "./containers/Form";
@@ -62,3 +62,14 @@ Helpers
 - transformDataIntoFormField: adapt the data to the more friendly HTML form shape (key: value).
 - isNullOrEmpty: simple checker of values
 - validateForm: parse the whole form for fields validations
+
+
+5. *Resilience to changes* topic. There are different aspects to consider: 
+- new data, more types and more validation rules
+- extensions of the form with new components 
+- considering the above two points, how the form, intended as a container in the page, should behave with more and more data.
+
+
+Thanks to the datatype is possible to add more validation and input type, as well as is possible to customize by input type with a different component.
+
+The UI is a basic glassmorphism prototype, based on CSS flexbox and some css variables (no external libraries or pre processor were used).
