@@ -4,6 +4,10 @@
     --custom-border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.vibrantFormActions {
+    width: 100%;
+}
+
 .vibrantFormSubmitButton {
     background: transparent;
     width: 100%;
@@ -38,7 +42,6 @@
 
 .vibrantFormSubmitButton[type="button"] {
     margin-top: 10px;
-    width: 150px;
     font-size: 1rem;
 }
 
@@ -50,21 +53,6 @@
     background: rgba(255, 255, 255, 0.2);
 }
 
-
-::-moz-placeholder {
-    font-weight: 400;
-    color: #fff;
-    text-shadow: var(--text-shadow);
-}
-
-:-ms-input-placeholder {
-    font-weight: 400;
-    color: #fff;
-    text-shadow: var(--text-shadow);
-}
-
-::placeholder {
-    font-weight: 400;
-    color: #fff;
-    text-shadow: var(--text-shadow);
+.submitting:hover {
+    cursor: wait;
 }

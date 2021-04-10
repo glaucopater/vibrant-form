@@ -2,6 +2,7 @@
     --text-shadows: 2px 2px 4px rgba(0, 0, 0, 0.2);
     --box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
     --custom-border: 1px solid rgba(255, 255, 255, 0.3);
+    --validation-color: crimson;
 }
 
 .vibrantFormInput {
@@ -81,4 +82,14 @@
     font-weight: 400;
     color: #fff;
     text-shadow: var(--text-shadow);
+}
+
+.vibrantFormLabelContainer {
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+}
+
+.validationMessage {
+    color: var(--validation-color);
 }

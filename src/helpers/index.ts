@@ -52,5 +52,5 @@ export const validateForm = (formData: TransformedDataType, fieldsData: DataType
         }
         else return [];
     });
-    return errs;
+    return errs.flat();
 }
