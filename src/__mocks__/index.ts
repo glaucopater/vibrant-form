@@ -1,6 +1,6 @@
-import { FormFieldType } from "../containers/Form/types";
+import { DataType } from "../containers/Form/types";
 
-export const mockFields: FormFieldType[] = [
+export const mockFields: DataType[] = [
     {
         name: "labelA",
         value: 100,
