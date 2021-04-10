@@ -1,13 +1,71 @@
-.vibrantFormActions {
-    display: flex;
-    padding: 8px;
-    margin: 8px;
-    border: 1px solid red;
+:root {
+    --text-shadows: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    --box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    --custom-border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+
 .vibrantFormSubmitButton {
-    width: 100px;
-    padding: 8px;
-    margin: 8px;
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
+    border-left: var(--custom-border);
+    border-top: var(--custom-border);
+    border-radius: 5000px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--box-shadow);
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: var(--text-shadow);
+    opacity: 0.7;
+    outline: none;
+}
+
+.vibrantFormSubmitButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: var(--box-shadow);
     cursor: pointer;
+}
+
+.vibrantFormSubmitButton[type="text"]:focus {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: var(--box-shadow);
+    opacity: 1;
+}
+
+.vibrantFormSubmitButton[type="button"] {
+    margin-top: 10px;
+    width: 150px;
+    font-size: 1rem;
+}
+
+.vibrantFormSubmitButton[type="button"]:hover {
+    cursor: pointer;
+}
+
+.vibrantFormSubmitButton[type="button"]:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+::-moz-placeholder {
+    font-weight: 400;
+    color: #fff;
+    text-shadow: var(--text-shadow);
+}
+
+:-ms-input-placeholder {
+    font-weight: 400;
+    color: #fff;
+    text-shadow: var(--text-shadow);
+}
+
+::placeholder {
+    font-weight: 400;
+    color: #fff;
+    text-shadow: var(--text-shadow);
 }

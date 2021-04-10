@@ -1,8 +1,35 @@
-.vibrantForm {
+/* .vibrantForm {
   padding: 8px;
   border: 1px solid salmon;
   display: flex;
   flex-direction: column;
   place-content: center;
   place-items: flex-start;
+}
+ */
+
+
+.vibrantForm {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 3em;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.vibrantForm p {
+  font-weight: 500;
+  color: #fff;
+  opacity: 0.7;
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
