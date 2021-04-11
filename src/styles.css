@@ -1,5 +1,13 @@
+:root {
+  --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  --white: #f1f1f1;
+  --background-gradient-color-from: #8c466b;
+  --background-gradient-color-to: #3f5efb;
+}
+
+
 body {
-  background: linear-gradient(45deg, #8c466b, #3f5efb);
+  background: linear-gradient(45deg, var(--background-gradient-color-from), var(--background-gradient-color-to));
   height: 100vh;
 }
 
@@ -12,10 +20,9 @@ body {
 
 .appTitle {
   font-weight: 500;
-  color: #fff;
+  color: var(--white);
   opacity: 0.7;
   font-size: 1.4rem;
   margin-top: 0;
-  margin-bottom: 60px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--text-shadow);
 }

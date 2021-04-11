@@ -1,9 +1,9 @@
 
 import React from "react";
-import { DataType, ValidationErrorType, FormFieldType } from "../../types";
+import { InputPropsType, FormFieldType } from "../../types";
 import "./styles.css";
 
-const Input: React.FC<DataType & { errors: ValidationErrorType[] }> = ({ name, value, type, isRequired, pattern, nativeValidation = false, errors }) => {
+const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, pattern, nativeValidation = false, errors }) => {
     const [stateLabelValue] = React.useState<FormFieldType>({ name, value });
 
     const nativeValidationProps = {

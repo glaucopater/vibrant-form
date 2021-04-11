@@ -1,4 +1,4 @@
 export default {
-    action: "/",
+    action: "",
     method: "POST"
 }

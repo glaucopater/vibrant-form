@@ -1,12 +1,21 @@
+:root {
+  --text-shadows: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  --box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  --custom-border-color: 1px solid rgba(255, 255, 255, 0.3);
+  --background-color: rgba(255, 255, 255, 0.3);
+  --white: #f1f1f1;
+}
+
+
 .vibrantForm {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--background-color);
   padding: 3em;
   border-radius: 20px;
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid var(--background-color);
+  border-top: 1px solid var(--background-color);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
   transition: all 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -15,10 +24,10 @@
 
 .vibrantForm p {
   font-weight: 500;
-  color: #fff;
+  color: var(--white);
   opacity: 0.7;
   font-size: 1.4rem;
   margin-top: 0;
   margin-bottom: 60px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--text-shadow);
 }

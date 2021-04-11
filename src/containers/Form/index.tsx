@@ -14,9 +14,21 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
 
   const sendData = () => {
-    setTimeout(() => {
-      setIsSubmitting(false);
-    }, 3000);
+    if (settings.action === "")
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 3000);
+    else {
+      const requestOptions = {
+        method: settings.method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      };
+      fetch(settings.action, requestOptions)
+        .then(response => console.log('Submitted successfully: ', response))
+        .catch(error => console.log('Form submit error', error))
+        .finally(() => setIsSubmitting(false))
+    }
   }
 
   const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
