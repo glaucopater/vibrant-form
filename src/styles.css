@@ -21,6 +21,17 @@ body {
   width: 480px;
 }
 
+
+@media only screen and (max-width: 600px) {
+  .App {
+    width: 100%;
+  }
+
+  .appTitle {
+    padding: 0 1rem;
+  }
+}
+
 .appTitle {
   font-weight: 500;
   color: var(--white);
