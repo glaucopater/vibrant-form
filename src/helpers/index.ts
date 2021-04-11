@@ -6,7 +6,7 @@ export const validateFormField = (field: DataType) => {
     if (field.isRequired && isNullOrEmpty(field.value)) {
         errors.push({
             name: field.name,
-            message: dictionary.isRequired
+            message: getValidationMessage(dictionary.isRequired, "name", field.name)
         });
     }
     if (field.pattern && field.value) {
