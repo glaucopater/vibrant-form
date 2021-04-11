@@ -1,8 +1,8 @@
 import React, { FormEvent } from "react";
 import Submit from "../../components/Submit";
 import settings from "../../settings";
-import { transformDataIntoFormField, validateForm } from "../../helpers";
-import { FormPropsType, TransformedDataType, ValidationErrorType } from "../../types";
+import { isNullOrEmpty, transformDataIntoFormField, validateForm } from "../../helpers";
+import { FormPropsType, TransformedDataType, FormOnChangeEventType, ValidationErrorType } from "../../types";
 import InputFields from "../InputFields";
 import { dictionary } from "../../dictionary";
 import "./styles.css";
@@ -15,7 +15,7 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>();
 
   const sendData = () => {
-    if (settings.action === "")
+    if (isNullOrEmpty(settings.action))
       setTimeout(() => {
         setIsSubmitting(false);
       }, 3000);
@@ -26,7 +26,7 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
         body: JSON.stringify(formData)
       };
       fetch(settings.action, requestOptions)
-        .then(response => console.log('Data submitted successfully: ', response))
+        .then(response => console.log(dictionary.dataSent, response))
         .catch(error => console.log('Server error: ', error))
         .finally(() => setIsSubmitting(false))
     }
@@ -42,7 +42,7 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
     }
   }
 
-  const handleOnChange = (e: any) => {
+  const handleOnChange = (e: FormOnChangeEventType) => {
     updateFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -55,9 +55,6 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
     onChange: handleOnChange
   }
 
-
-  console.log(isSubmitting);
-
   return (
     <section className="vibrantFormContainer">
       <form className="vibrantForm" {...formProps}>
@@ -66,9 +63,8 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
           formErrors={formErrors}
         // component={CustomInput}
         />
-        {isSubmitting === false && <span>{dictionary.dataSend}</span>}
+        {isSubmitting === false && <span>{dictionary.dataSent}</span>}
         <Submit isSubmitting={isSubmitting} />
-
       </form>
     </section>
   );
