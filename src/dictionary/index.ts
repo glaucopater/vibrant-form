@@ -6,5 +6,6 @@ export const dictionary: Record<string, string> = {
     "shouldBeGreater": "This value should be > {{minValue}} ⚠️",
     "shouldBeSmaller": "This value should be < {{maxValue}} ⚠️",
     "validated": "✔️",
-    "sendingData": "Sending data..."
+    "sendingData": "Sending data...",
+    "dataSent": "Thanks, data successfully submitted!",
 }

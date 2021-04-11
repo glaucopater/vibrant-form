@@ -4,6 +4,7 @@ import settings from "../../settings";
 import { transformDataIntoFormField, validateForm } from "../../helpers";
 import { FormPropsType, TransformedDataType, ValidationErrorType } from "../../types";
 import InputFields from "../InputFields";
+import { dictionary } from "../../dictionary";
 import "./styles.css";
 
 
@@ -11,7 +12,7 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   const initialFormData = transformDataIntoFormField(fieldsData);
   const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[]>();
-  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>();
 
   const sendData = () => {
     if (settings.action === "")
@@ -55,6 +56,8 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   }
 
 
+  console.log(isSubmitting);
+
   return (
     <section className="vibrantFormContainer">
       <form className="vibrantForm" {...formProps}>
@@ -63,7 +66,9 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
           formErrors={formErrors}
         // component={CustomInput}
         />
+        {isSubmitting === false && <span>{dictionary.dataSend}</span>}
         <Submit isSubmitting={isSubmitting} />
+
       </form>
     </section>
   );

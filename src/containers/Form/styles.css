@@ -29,6 +29,11 @@
   }
 }
 
+.vibrantForm span {
+  font-weight: 500;
+  color: var(--white);
+}
+
 .vibrantForm p {
   font-weight: 500;
   color: var(--white);
