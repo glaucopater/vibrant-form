@@ -26,6 +26,7 @@ Consideration
 1. 🏗 The \<Form\/\> component.
 I decided to follow an approach guided by data, so that the building of the form is related to the given props (which could also point to a rest endpoint in case). 
 A different approach could be on receving children markup code, but this should imply more type check enforcement and less control.
+For the form state as there was no particular reason to use a custom reducer (useReducer) (no interaction/dependency between fields and no side effect to consider) I used a normal useState.
 I want to highlight that all the library/packages in the market are usually more oriented to create a form context and apply it to a specific case.
 I kept the ./src project folder structure pretty simple:
 	- components for react components
@@ -76,10 +77,12 @@ Helpers
 
 There are different aspects to take in consideration: 
 - new data, more types and more validation rules
-- extensions of the form with new components 
+- extensions of the form with new components and dependencies between fields.
 - considering the above two points, how the form, intended as a container in the page, should behave with more and more data.
 
 
 Thanks to the datatype is possible to add more validation and input type, as well as is possible to customize by input type with a different component.
+
+The state management could be enhanced using a custom reducer splitting each different action.
 
 The UI is a basic glassmorphism prototype, based on CSS flexbox and some css variables (no external libraries or pre processor were used).

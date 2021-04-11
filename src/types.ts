@@ -19,6 +19,8 @@ export type InputPropsType = DataType & {
 
 export type FormFieldType = Pick<DataType, "name" | "value">;
 
+export type FormOnChangeEventType = React.FormEvent<HTMLInputElement> | any;
+
 export type FormPropsType = {
     fieldsData?: DataType[];
     formErrors?: ErrorsPropsType["formErrors"];

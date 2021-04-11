@@ -17,7 +17,13 @@ export const validateFormField = (field: DataType) => {
                 message: getValidationMessage(dictionary.shouldMatchPattern, "pattern", field.pattern)
             });
     }
-    if (field.minValue && field.value && !isNaN(Number(field.value))) {
+    if (field.minValue && field.value) {
+        if (isNaN(Number(field.value))) {
+            errors.push({
+                name: field.name,
+                message: getValidationMessage(dictionary.shouldBeNumber, "name", field.name)
+            });
+        }
         if (Number(field.value) <= field.minValue) {
             errors.push({
                 name: field.name,

@@ -29,7 +29,7 @@
     border: none;
     border-left: var(--custom-border);
     border-top: var(--custom-border);
-    border-radius: 5000px;
+    border-radius: 20px;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     box-shadow: var(--box-shadow);
