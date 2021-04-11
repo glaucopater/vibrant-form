@@ -10,7 +10,7 @@ describe("Helper", () => {
 
     it("should test validateFormField with a required field", () => {
         const result = validateFormField({ name: "test2", isRequired: true, type: "text" });
-        expect(result).toMatchObject([{ "message": dictionary.isRequired }]);
+        expect(result).toMatchObject([{ "message": getValidationMessage(dictionary.isRequired, "name", "test2") }]);
     })
 
     it("should test validateFormField with a not required  field", () => {
