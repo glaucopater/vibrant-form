@@ -10,7 +10,7 @@ const ValidationMessage: React.FC<{ errors: ValidationErrorType[] }> = ({ errors
     return <span className="validationMessage">{message}</span>;
 }
 
-const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, pattern, nativeValidation = false, errors, isValidated }) => {
+const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, placeholder, pattern, nativeValidation = false, errors, isValidated }) => {
     const [stateLabelValue] = React.useState<FormFieldType>({ name, value });
 
     const nativeValidationProps = {
@@ -34,6 +34,7 @@ const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, patter
                 name={name}
                 type={type}
                 defaultValue={stateLabelValue.value}
+                placeholder={placeholder || ""}
                 {...nativeValidationProps}
             />
         </div>

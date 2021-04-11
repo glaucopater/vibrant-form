@@ -25,8 +25,8 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
         body: JSON.stringify(formData)
       };
       fetch(settings.action, requestOptions)
-        .then(response => console.log('Submitted successfully: ', response))
-        .catch(error => console.log('Submit error: ', error))
+        .then(response => console.log('Data submitted successfully: ', response))
+        .catch(error => console.log('Server error: ', error))
         .finally(() => setIsSubmitting(false))
     }
   }
@@ -35,7 +35,6 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
     e.preventDefault();
     const errs = validateForm(formData, fieldsData);
     setFormErrors(errs);
-
     if (errs.length === 0) {
       setIsSubmitting(true);
       sendData();

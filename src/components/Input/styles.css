@@ -83,6 +83,7 @@
     font-weight: 400;
     color: var(--white);
     text-shadow: var(--text-shadow);
+    font-style: italic;
 }
 
 .vibrantFormLabelContainer {

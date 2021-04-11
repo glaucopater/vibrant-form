@@ -10,6 +10,7 @@ export type DataType = {
     minValue?: number;
     maxValue?: number;
     nativeValidation?: boolean;
+    placeholder?: string;
 }
 
 export type InputPropsType = DataType & {

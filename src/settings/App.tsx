@@ -1,7 +1,7 @@
-import Form from "./containers/Form";
-import { FormPropsType } from "./types";
-import { initialData } from "./__mocks__/index";
-import { dictionary } from "./dictionary";
+import Form from "../containers/Form";
+import { FormPropsType } from "../types";
+import { initialData } from "../__mocks__/index";
+import { dictionary } from "../dictionary";
 import "./styles.css";
 
 export default function App() {
