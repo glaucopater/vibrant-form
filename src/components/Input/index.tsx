@@ -1,9 +1,16 @@
 
 import React from "react";
-import { InputPropsType, FormFieldType } from "../../types";
+import { dictionary } from "../../dictionary";
+import { InputPropsType, FormFieldType, ValidationErrorType } from "../../types";
 import "./styles.css";
 
-const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, pattern, nativeValidation = false, errors }) => {
+
+const ValidationMessage: React.FC<{ errors: ValidationErrorType[] }> = ({ errors }) => {
+    const message = errors.length > 0 ? errors[0].message : dictionary.validated;
+    return <span className="validationMessage">{message}</span>;
+}
+
+const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, pattern, nativeValidation = false, errors, isValidated }) => {
     const [stateLabelValue] = React.useState<FormFieldType>({ name, value });
 
     const nativeValidationProps = {
@@ -20,7 +27,7 @@ const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, patter
                 <label className="vibrantFormLabel" htmlFor={`${name}InputText`}>
                     {stateLabelValue.name}
                 </label>
-                {errors.length > 0 && <span className="validationMessage">{errors[0].message}</span>}
+                {isValidated && <ValidationMessage errors={errors} />}
             </div>
             <input className="vibrantFormInputText"
                 id={`${name}InputText`}

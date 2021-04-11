@@ -1,13 +1,15 @@
 :root {
   --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   --white: #f1f1f1;
-  --background-gradient-color-from: #8c466b;
-  --background-gradient-color-to: #3f5efb;
 }
 
+html {
+  height: 100%;
+}
 
 body {
-  background: linear-gradient(45deg, var(--background-gradient-color-from), var(--background-gradient-color-to));
+  background: rgb(63, 94, 251);
+  background: radial-gradient(circle, rgba(63, 94, 251, 1) 50%, rgba(219, 70, 252, 1) 100%);
   height: 100vh;
 }
 
@@ -16,7 +18,7 @@ body {
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  width: 400px;
+  width: 480px;
 }
 
 .appTitle {

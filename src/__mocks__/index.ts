@@ -11,6 +11,7 @@ export const mockFields: DataType[] = [
         name: "role",
         value: "Designer",
         type: "text",
+        isRequired: true
     },
     {
         name: "department",
@@ -21,6 +22,7 @@ export const mockFields: DataType[] = [
     },
     {
         name: "salary",
+        value: 900,
         type: "text",
         minValue: 1000,
         isRequired: true

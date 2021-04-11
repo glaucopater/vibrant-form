@@ -12,7 +12,9 @@ export type DataType = {
     nativeValidation?: boolean;
 }
 
-export type InputPropsType = DataType & { errors: ValidationErrorType[] };
+export type InputPropsType = DataType & {
+    errors: ValidationErrorType[]; isValidated?: boolean;
+};
 
 export type FormFieldType = Pick<DataType, "name" | "value">;
 

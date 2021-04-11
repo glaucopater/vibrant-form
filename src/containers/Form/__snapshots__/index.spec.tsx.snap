@@ -27,6 +27,7 @@ exports[`VibrantForm should render the component with mock data 1`] = `
         "minValue": 1000,
         "name": "salary",
         "type": "text",
+        "value": 900,
       },
     ]
   }
