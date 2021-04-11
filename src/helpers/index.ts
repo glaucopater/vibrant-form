@@ -14,14 +14,14 @@ export const validateFormField = (field: DataType) => {
         if (!re.test(field.value?.toString()))
             errors.push({
                 name: field.name,
-                message: dictionary.shouldMatchPattern
+                message: getValidationMessage(dictionary.shouldMatchPattern, "pattern", field.pattern)
             });
     }
     if (field.minValue && field.value && !isNaN(Number(field.value))) {
         if (Number(field.value) <= field.minValue) {
             errors.push({
                 name: field.name,
-                message: dictionary.shouldBeGreater
+                message: getValidationMessage(dictionary.shouldBeGreater, "minValue", field.minValue)
             });
         }
     }
@@ -29,7 +29,7 @@ export const validateFormField = (field: DataType) => {
         if (Number(field.value) >= field.maxValue) {
             errors.push({
                 name: field.name,
-                message: dictionary.shouldBeSmaller
+                message: getValidationMessage(dictionary.shouldBeSmaller, "maxValue", field.maxValue)
             });
         }
     }
@@ -61,4 +61,9 @@ export const validateForm = (formData: TransformedDataType, fieldsData: DataType
         else return [];
     });
     return errs.flat();
+}
+
+
+export const getValidationMessage = (keyWord: string, templatedValue: string, valueToReplace: string | number) => {
+    return keyWord.replace(`{{${templatedValue}}}`, valueToReplace.toString());
 }

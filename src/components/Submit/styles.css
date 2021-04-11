@@ -2,8 +2,8 @@
     --text-shadows: 2px 2px 4px rgba(0, 0, 0, 0.2);
     --box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
     --custom-border: 1px solid rgba(255, 255, 255, 0.3);
-    --button-color: #c7158570;
-    --button-color-active: #c7158590;
+    --button-color: darkblue;
+    --button-color-active: blue;
 }
 
 .vibrantFormActions {
