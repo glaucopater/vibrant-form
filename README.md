@@ -6,10 +6,10 @@ A react typescript form component
 Consideration
 ---
 
-1. 🏗 The <Form/> component. I decided to follow an approach guided by data, so that the building of the form is related to the given props (which could also point to a rest endpoint in case). 
+1. 🏗 The \<Form\/\> component. I decided to follow an approach guided by data, so that the building of the form is related to the given props (which could also point to a rest endpoint in case). 
 A different approach could be on receving children markup code, but this should imply more type check enforcement and less control.
 I want to highlight that all the library/packages in the market are usually more oriented to create a form context and apply it to a specific case. 
-2. 🧬 The component is pretty generic, all the logic (onChange event, validation and onSubmit) are managed by the <Form/> component.
+2. 🧬 The component is pretty generic, all the logic (onChange event, validation and onSubmit) are managed by the \<Form\/\> component.
 3. ✅ 🚫 Basic validation is implemented as described in the API
 4. 📦 The API
 
