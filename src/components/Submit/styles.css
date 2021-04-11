@@ -2,6 +2,8 @@
     --text-shadows: 2px 2px 4px rgba(0, 0, 0, 0.2);
     --box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
     --custom-border: 1px solid rgba(255, 255, 255, 0.3);
+    --button-color: #c7158570;
+    --button-color-active: #c7158590;
 }
 
 .vibrantFormActions {
@@ -9,7 +11,7 @@
 }
 
 .vibrantFormSubmitButton {
-    background: transparent;
+    background: var(--button-color);
     width: 100%;
     padding: 1em;
     margin-bottom: 2em;
@@ -29,7 +31,7 @@
 }
 
 .vibrantFormSubmitButton:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--button-color-active);
     box-shadow: var(--box-shadow);
     cursor: pointer;
 }
