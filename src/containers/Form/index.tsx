@@ -3,7 +3,7 @@ import Submit from "../../components/Submit";
 import settings from "../../settings";
 import { transformDataIntoFormField, validateForm } from "../../helpers";
 import { FormPropsType, TransformedDataType, ValidationErrorType } from "../../types";
-import InputFields from "../../components/InputFields";
+import InputFields from "../InputFields";
 import "./styles.css";
 
 

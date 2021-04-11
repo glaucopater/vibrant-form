@@ -11,6 +11,7 @@ exports[`VibrantForm should render the component with mock data 1`] = `
         "value": "John Doe",
       },
       Object {
+        "isRequired": true,
         "name": "role",
         "type": "text",
         "value": "Designer",
