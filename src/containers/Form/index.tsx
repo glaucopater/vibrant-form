@@ -1,6 +1,5 @@
 import React, { FormEvent } from "react";
 import Submit from "../../components/Submit";
-import settings from "../../settings";
 import { isNullOrEmpty, transformDataIntoFormField, validateForm } from "../../helpers";
 import { FormPropsType, TransformedDataType, FormOnChangeEventType, ValidationErrorType } from "../../types";
 import InputFields from "../InputFields";
@@ -8,27 +7,27 @@ import { dictionary } from "../../dictionary";
 import "./styles.css";
 
 
-const Form: React.FC<FormPropsType> = ({ fieldsData, withTheme }) => {
+const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme }) => {
   const initialFormData = transformDataIntoFormField(fieldsData);
   const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[]>();
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>();
 
   const sendData = () => {
-    if (isNullOrEmpty(settings.action))
+    if (isNullOrEmpty(action))
       setTimeout(() => {
         setIsSubmitting(false);
       }, 3000);
     else {
       const requestOptions = {
-        method: settings.method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       };
-      fetch(settings.action, requestOptions)
-        .then(response => console.log(dictionary.dataSent, response))
-        .catch(error => console.log('Server error: ', error))
-        .finally(() => setIsSubmitting(false))
+      if (action)
+        fetch(action, requestOptions)
+          .then(response => console.log(dictionary.dataSent, response))
+          .catch(error => console.log('Server error: ', error))
+          .finally(() => setIsSubmitting(false))
     }
   }
 
@@ -49,8 +48,6 @@ const Form: React.FC<FormPropsType> = ({ fieldsData, withTheme }) => {
     });
   }
 
-
-  const { action, method } = settings;
   const formProps = {
     action, method,
     onSubmit: handleOnSubmit,

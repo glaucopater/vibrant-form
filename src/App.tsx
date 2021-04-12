@@ -8,7 +8,9 @@ import "./styles.css";
 export default function App() {
   const formProps: FormPropsType = {
     fieldsData: initialData,
-    withTheme: settings.withTheme
+    action: settings.action,
+    method: settings.method,
+    withTheme: settings.withTheme,
   };
   return (
     <div className="App">
