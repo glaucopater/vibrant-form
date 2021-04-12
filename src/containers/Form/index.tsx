@@ -8,7 +8,7 @@ import { dictionary } from "../../dictionary";
 import "./styles.css";
 
 
-const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
+const Form: React.FC<FormPropsType> = ({ fieldsData, withTheme }) => {
   const initialFormData = transformDataIntoFormField(fieldsData);
   const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[]>();
@@ -49,24 +49,27 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
     });
   }
 
+
+  const { action, method } = settings;
   const formProps = {
-    ...settings,
+    action, method,
     onSubmit: handleOnSubmit,
     onChange: handleOnChange
   }
 
   return (
-    <section className="vibrantFormContainer">
-      <form className="vibrantForm" {...formProps}>
+    <section className={withTheme ? "vibrantFormContainer" : ""} >
+      <form className={withTheme ? "vibrantForm" : ""} {...formProps}>
         <InputFields
           fieldsData={fieldsData}
           formErrors={formErrors}
+          withTheme={withTheme}
         // component={CustomInput}
         />
         {isSubmitting === false && <span>{dictionary.dataSent}</span>}
-        <Submit isSubmitting={isSubmitting} />
+        <Submit isSubmitting={isSubmitting} withTheme={withTheme} />
       </form>
-    </section>
+    </section >
   );
 }
 

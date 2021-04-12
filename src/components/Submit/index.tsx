@@ -3,10 +3,10 @@ import React from "react";
 import { dictionary } from "../../dictionary";
 import "./styles.css";
 
-const Submit: React.FC<{ isSubmitting?: boolean }> = ({ isSubmitting }) => {
+const Submit: React.FC<{ isSubmitting?: boolean, withTheme?: boolean }> = ({ isSubmitting, withTheme }) => {
     return (
-        <div className="vibrantFormActions">
-            <input className={`vibrantFormSubmitButton${isSubmitting ? " submitting" : ""}`}
+        <div className={withTheme ? "vibrantFormActions" : ""}>
+            <input className={withTheme ? `vibrantFormSubmitButton${isSubmitting ? " submitting" : ""}` : ""}
                 type="submit"
                 value={isSubmitting ? dictionary.sendingData : dictionary.submit}
                 disabled={isSubmitting}
