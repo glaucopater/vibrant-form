@@ -67,19 +67,19 @@
 }
 
 
-::-moz-placeholder {
+.vibrantFormInputText::-moz-placeholder {
     font-weight: 400;
     color: var(--white);
     text-shadow: var(--text-shadow);
 }
 
-:-ms-input-placeholder {
+.vibrantFormInputText:-ms-input-placeholder {
     font-weight: 400;
     color: var(--white);
     text-shadow: var(--text-shadow);
 }
 
-::placeholder {
+.vibrantFormInputText::placeholder {
     font-weight: 400;
     color: var(--white);
     text-shadow: var(--text-shadow);

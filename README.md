@@ -37,6 +37,19 @@ I kept the ./src project folder structure pretty simple:
 	- settings for default settings
 2. 🧬 The component is pretty generic, all the logic (onChange event, validation and onSubmit) are managed by the \<Form\/\> component.
 From UI perspective there is a default theme, toggable via settings. Without theme the component can be embedded in different context, like a search field with a button.
+For example another use case could be a simple search field box. To implement this just:
+
+```
+     <Form {...formProps} withTheme={false} fieldsData={[
+        {
+          name: "Search",
+          type: "text",
+          isRequired: true,
+          placeholder: "type here ..."
+        },
+	/>
+```
+
 3. ✅ ⚠️ Basic validation is implemented as described in the API
 
 📦 The API
