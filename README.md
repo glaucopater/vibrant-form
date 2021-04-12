@@ -36,6 +36,20 @@ I kept the ./src project folder structure pretty simple:
 	- dictionary for all the strings used in the UI
 	- settings for default settings
 2. 🧬 The component is pretty generic, all the logic (onChange event, validation and onSubmit) are managed by the \<Form\/\> component.
+From UI perspective there is a default theme, toggable via settings. Without theme the component can be embedded in different context, like a search field with a button.
+For example another use case could be a simple search field box. To implement this just:
+
+```
+     <Form {...formProps} withTheme={false} fieldsData={[
+        {
+          name: "Search",
+          type: "text",
+          isRequired: true,
+          placeholder: "type here ..."
+        },
+	/>
+```
+
 3. ✅ ⚠️ Basic validation is implemented as described in the API
 
 📦 The API
@@ -49,6 +63,7 @@ Props
 Default is the Input component in the "./components/Input" folder.
 - action?: form action url,  default "" which is enabling the test mode for submitting data
 - method?: form method, default "POST"
+- withTheme?: boolean to enable / disable default theme
 
 
 Data Model and Data Types 

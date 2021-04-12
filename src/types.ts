@@ -14,7 +14,9 @@ export type DataType = {
 }
 
 export type InputPropsType = DataType & {
-    errors: ValidationErrorType[]; isValidated?: boolean;
+    errors: ValidationErrorType[];
+    isValidated?: boolean;
+    withTheme?: boolean;
 };
 
 export type FormFieldType = Pick<DataType, "name" | "value">;
@@ -27,6 +29,7 @@ export type FormPropsType = {
     component?: React.FC<any>;
     action?: string;
     method?: string;
+    withTheme?: boolean;
 }
 
 export type ValidationErrorType = {

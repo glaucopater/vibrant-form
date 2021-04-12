@@ -1,4 +1,5 @@
 export default {
     action: "",
-    method: "POST"
+    method: "POST",
+    withTheme: true,
 }

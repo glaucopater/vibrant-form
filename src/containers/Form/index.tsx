@@ -1,6 +1,5 @@
 import React, { FormEvent } from "react";
 import Submit from "../../components/Submit";
-import settings from "../../settings";
 import { isNullOrEmpty, transformDataIntoFormField, validateForm } from "../../helpers";
 import { FormPropsType, TransformedDataType, FormOnChangeEventType, ValidationErrorType } from "../../types";
 import InputFields from "../InputFields";
@@ -8,27 +7,27 @@ import { dictionary } from "../../dictionary";
 import "./styles.css";
 
 
-const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
+const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme }) => {
   const initialFormData = transformDataIntoFormField(fieldsData);
   const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[]>();
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>();
 
   const sendData = () => {
-    if (isNullOrEmpty(settings.action))
+    if (isNullOrEmpty(action))
       setTimeout(() => {
         setIsSubmitting(false);
       }, 3000);
     else {
       const requestOptions = {
-        method: settings.method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       };
-      fetch(settings.action, requestOptions)
-        .then(response => console.log(dictionary.dataSent, response))
-        .catch(error => console.log('Server error: ', error))
-        .finally(() => setIsSubmitting(false))
+      if (action)
+        fetch(action, requestOptions)
+          .then(response => console.log(dictionary.dataSent, response))
+          .catch(error => console.log('Server error: ', error))
+          .finally(() => setIsSubmitting(false))
     }
   }
 
@@ -50,23 +49,24 @@ const Form: React.FC<FormPropsType> = ({ fieldsData }) => {
   }
 
   const formProps = {
-    ...settings,
+    action, method,
     onSubmit: handleOnSubmit,
     onChange: handleOnChange
   }
 
   return (
-    <section className="vibrantFormContainer">
-      <form className="vibrantForm" {...formProps}>
+    <section className={withTheme ? "vibrantFormContainer" : ""} >
+      <form className={withTheme ? "vibrantForm" : ""} {...formProps}>
         <InputFields
           fieldsData={fieldsData}
           formErrors={formErrors}
+          withTheme={withTheme}
         // component={CustomInput}
         />
         {isSubmitting === false && <span>{dictionary.dataSent}</span>}
-        <Submit isSubmitting={isSubmitting} />
+        <Submit isSubmitting={isSubmitting} withTheme={withTheme} />
       </form>
-    </section>
+    </section >
   );
 }
 
