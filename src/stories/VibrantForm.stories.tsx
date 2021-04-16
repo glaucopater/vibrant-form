@@ -23,6 +23,7 @@ const Template: Story<FormPropsType> = (args) =>
     <h1 className="appTitle">{"TEST"}</h1>
     <Form {...formProps} />
   </div>;
+
 export const Default = Template.bind({});
 Default.args = {
   ...formProps
