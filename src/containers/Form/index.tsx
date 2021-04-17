@@ -7,7 +7,7 @@ import { dictionary } from "../../dictionary";
 import "./styles.css";
 
 
-const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme }) => {
+const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme, component: CustomInput }) => {
   const initialFormData = transformDataIntoFormField(fieldsData);
   const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[]>();
@@ -64,7 +64,7 @@ const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme }
           fieldsData={fieldsData}
           formErrors={formErrors}
           withTheme={withTheme}
-        // component={CustomInput}
+          component={CustomInput}
         />
         {isSubmitting === false && <span>{dictionary.dataSent}</span>}
         <Submit isSubmitting={isSubmitting} withTheme={withTheme} />

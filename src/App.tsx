@@ -4,13 +4,14 @@ import { initialData } from "./__mocks__/index";
 import { dictionary } from "./dictionary";
 import settings from "./settings";
 import "./styles.css";
+import CustomInput from "./components/CustomInput";
 
 export default function App() {
   const formProps: FormPropsType = {
     fieldsData: initialData,
     action: settings.action,
     method: settings.method,
-    withTheme: settings.withTheme,
+    withTheme: settings.withTheme
   };
   return (
     <div className="App">
