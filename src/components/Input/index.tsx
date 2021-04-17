@@ -1,13 +1,15 @@
 
 import React from "react";
 import { dictionary } from "../../dictionary";
+import { getClassNameProps } from "../../helpers";
 import { InputPropsType, FormFieldType, ValidationErrorType } from "../../types";
 import "./styles.css";
 
 
 const ValidationMessage: React.FC<{ errors: ValidationErrorType[], withTheme?: boolean }> = ({ errors, withTheme }) => {
     const message = errors.length > 0 ? errors[0].message : dictionary.validated;
-    return <span className={withTheme ? "validationMessage" : ""}> {message}</ span>;
+    const classNameProps = withTheme ? { className: "validationMessage" } : null;
+    return <span {...classNameProps} > {message}</ span >;
 }
 
 const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, placeholder, pattern, nativeValidation = false, errors, isValidated, withTheme }) => {
@@ -22,14 +24,14 @@ const Input: React.FC<InputPropsType> = ({ name, value, type, isRequired, placeh
     }
 
     return (
-        <div className={withTheme ? "vibrantFormInput" : ""}>
-            <div className={withTheme ? "vibrantFormLabelContainer" : ""}>
-                <label className={withTheme ? "vibrantFormLabel" : ""} htmlFor={`${name}InputText`}>
+        <div {...getClassNameProps("vibrantFormInput", withTheme)} >
+            <div {...getClassNameProps("vibrantFormLabelContainer", withTheme)} >
+                <label {...getClassNameProps("vibrantFormLabel", withTheme)} htmlFor={`${name}InputText`}>
                     {stateLabelValue.name}
                 </label>
                 {isValidated && <ValidationMessage errors={errors} withTheme={withTheme} />}
             </div>
-            <input className={withTheme ? "vibrantFormInputText" : ""}
+            <input {...getClassNameProps("vibrantFormInputText", withTheme)}
                 id={`${name}InputText`}
                 name={name}
                 type={type}

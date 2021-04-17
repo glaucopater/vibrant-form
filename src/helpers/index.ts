@@ -73,3 +73,8 @@ export const validateForm = (formData: TransformedDataType, fieldsData: DataType
 export const getValidationMessage = (keyWord: string, templatedValue: string, valueToReplace: string | number) => {
     return keyWord.replace(`{{${templatedValue}}}`, valueToReplace.toString());
 }
+
+
+export const getClassNameProps = (className: string, withTheme?: boolean) => {
+    return withTheme ? { className: className } : null;
+}

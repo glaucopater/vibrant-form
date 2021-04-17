@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 import Submit from "../../components/Submit";
-import { isNullOrEmpty, transformDataIntoFormField, validateForm } from "../../helpers";
+import { getClassNameProps, isNullOrEmpty, transformDataIntoFormField, validateForm } from "../../helpers";
 import { FormPropsType, TransformedDataType, FormOnChangeEventType, ValidationErrorType } from "../../types";
 import InputFields from "../InputFields";
 import { dictionary } from "../../dictionary";
@@ -55,8 +55,11 @@ const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme }
   }
 
   return (
-    <section className={withTheme ? "vibrantFormContainer" : ""} >
-      <form className={withTheme ? "vibrantForm" : ""} {...formProps}>
+    <section
+      {...getClassNameProps("vibrantFormContainer", withTheme)}>
+      <form
+        {...getClassNameProps("vibrantForm", withTheme)}
+        {...formProps}>
         <InputFields
           fieldsData={fieldsData}
           formErrors={formErrors}
