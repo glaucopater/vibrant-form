@@ -60,14 +60,17 @@ const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme, 
       <form
         {...getClassNameProps("vibrantForm", withTheme)}
         {...formProps}>
-        <InputFields
-          fieldsData={fieldsData}
-          formErrors={formErrors}
-          withTheme={withTheme}
-          component={CustomInput}
-        />
-        {isSubmitting === false && <span>{dictionary.dataSent}</span>}
-        <Submit isSubmitting={isSubmitting} withTheme={withTheme} />
+        <fieldset disabled={isSubmitting === false}>
+          <InputFields
+            fieldsData={fieldsData}
+            formErrors={formErrors}
+            withTheme={withTheme}
+            component={CustomInput}
+          />
+          {isSubmitting === false ? <span>{dictionary.dataSent}</span> :
+            <Submit isSubmitting={isSubmitting} withTheme={withTheme} />
+          }
+        </fieldset>
       </form>
     </section >
   );

@@ -18,6 +18,13 @@ body {
   place-items: center;
 }
 
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .App {
   width: 480px;
 }
