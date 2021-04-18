@@ -45,7 +45,7 @@ export const validateFormField = (field: DataType) => {
 export const transformDataIntoFormField = (data?: DataType[]) => {
     if (!data) return {};
     const transformedData: TransformedDataType = {};
-    data.map(item => {
+    data.forEach(item => {
         transformedData[item.name] = item.value;
     });
     return transformedData;

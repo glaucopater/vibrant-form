@@ -4,7 +4,6 @@ import { initialData } from "./__mocks__/index";
 import { dictionary } from "./dictionary";
 import settings from "./settings";
 import "./styles.css";
-import CustomInput from "./components/CustomInput";
 
 export default function App() {
   const formProps: FormPropsType = {
