@@ -1,3 +1,14 @@
 .vibrantFormInputFields {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, auto);
+    grid-gap: 8px;
     width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .vibrantFormInputFields {
+        display: flex;
+        flex-direction: column;
+    }
 }

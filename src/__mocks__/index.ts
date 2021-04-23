@@ -60,4 +60,12 @@ export const mockFields: DataType[] = [
         isRequired: true,
         placeholder: "type an amount greater than 1000"
     },
+    {
+        name: "salary",
+        value: 900,
+        type: "text",
+        minValue: 1000,
+        isRequired: true,
+        placeholder: "type an amount greater than 1000"
+    },
 ];
