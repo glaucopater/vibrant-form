@@ -5,6 +5,8 @@ A react form component made with react js, typescript, jest (CRA template)
 
 ![Demo 2](/public/vibrant2.jpg)
 ## [Live Secret Demo](https://epic-chandrasekhar-89f3f8.netlify.app/) 🔥
+## [StoryBook](https://607934b40a39b80021c9658d-tisirefdox.chromatic.com/?path=/story/vibrantform--default) 💅
+
 
 To install the required dependencies:
 ---

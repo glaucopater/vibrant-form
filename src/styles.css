@@ -10,21 +10,19 @@ html {
 }
 
 body {
-  background: radial-gradient(circle, var(--gradient-color-from) 50%, var(--gradient-color-to) 100%);
-  display: flex;
+  background: rgb(0, 0, 59);
   flex-direction: column;
   place-content: center;
   place-items: center;
   height: 100vh;
+  display: flex;
 }
 
 @media only screen and (max-width: 600px) {
   body {
     height: fit-content;
   }
-
 }
-
 
 fieldset {
   border: none;
@@ -39,7 +37,6 @@ fieldset {
 }
 
 @media only screen and (max-width: 600px) {
-
   #root {
     width: 100%;
   }
