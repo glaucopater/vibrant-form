@@ -49,7 +49,6 @@ export const transformDataIntoFormField = (data?: DataType[]) => {
         transformedData[item.name] = item.value;
     });
     return transformedData;
-
 }
 
 export const isNullOrEmpty = (val: string | number | undefined) => {

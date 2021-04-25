@@ -2,7 +2,7 @@ import Form from "../containers/Form";
 import { Story } from '@storybook/react';
 import settings from '../settings';
 import { FormPropsType } from '../types';
-import { initialData } from '../__mocks__';
+import { initialData, extraFieldsData } from '../__mocks__';
 import "../styles.css";
 import CustomInput from "../components/CustomInput";
 
@@ -29,6 +29,13 @@ const Template: Story<FormPropsType> = (args) =>
 export const Default = Template.bind({});
 Default.args = {
   ...formProps
+};
+
+export const TwoColumns = Template.bind({});
+const moreFieldsData = [...initialData, ...extraFieldsData];
+TwoColumns.args = {
+  ...formProps,
+  fieldsData: moreFieldsData
 };
 
 export const NoTheme = Template.bind({});

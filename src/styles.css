@@ -3,6 +3,7 @@
   --white: #f1f1f1;
   --gradient-color-from: darkblue;
   --gradient-color-to: var(--white);
+  --very-dark-blue: rgb(0, 0, 59);
 }
 
 html {
@@ -10,7 +11,7 @@ html {
 }
 
 body {
-  background: rgb(0, 0, 59);
+  background: var(--very-dark-blue);
   flex-direction: column;
   place-content: center;
   place-items: center;
