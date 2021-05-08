@@ -9,11 +9,14 @@
 
 .vibrantFormActions {
     width: 100%;
+    display: flex;
+    place-content: center;
+    place-items: center;
 }
 
 .vibrantFormSubmitButton {
     background: var(--button-color);
-    width: 100%;
+    min-width: 200px;
     padding: 1em;
     margin-bottom: 2em;
     border: none;

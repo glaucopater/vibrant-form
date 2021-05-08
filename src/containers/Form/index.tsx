@@ -1,13 +1,13 @@
 import React, { FormEvent } from "react";
 import Submit from "../../components/Submit";
-import { isNullOrEmpty, transformDataIntoFormField, validateForm } from "../../helpers";
+import { getClassNameProps, isNullOrEmpty, transformDataIntoFormField, validateForm } from "../../helpers";
 import { FormPropsType, TransformedDataType, FormOnChangeEventType, ValidationErrorType } from "../../types";
 import InputFields from "../InputFields";
 import { dictionary } from "../../dictionary";
 import "./styles.css";
 
 
-const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme }) => {
+const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme, component: CustomInput }) => {
   const initialFormData = transformDataIntoFormField(fieldsData);
   const [formData, updateFormData] = React.useState<TransformedDataType>(initialFormData);
   const [formErrors, setFormErrors] = React.useState<ValidationErrorType[]>();
@@ -55,16 +55,22 @@ const Form: React.FC<FormPropsType> = ({ fieldsData, action, method, withTheme }
   }
 
   return (
-    <section className={withTheme ? "vibrantFormContainer" : ""} >
-      <form className={withTheme ? "vibrantForm" : ""} {...formProps}>
-        <InputFields
-          fieldsData={fieldsData}
-          formErrors={formErrors}
-          withTheme={withTheme}
-        // component={CustomInput}
-        />
-        {isSubmitting === false && <span>{dictionary.dataSent}</span>}
-        <Submit isSubmitting={isSubmitting} withTheme={withTheme} />
+    <section
+      {...getClassNameProps("vibrantFormContainer", withTheme)}>
+      <form
+        {...getClassNameProps("vibrantForm", withTheme)}
+        {...formProps}>
+        <fieldset disabled={isSubmitting === false}>
+          <InputFields
+            fieldsData={fieldsData}
+            formErrors={formErrors}
+            withTheme={withTheme}
+            component={CustomInput}
+          />
+          {isSubmitting === false ? <span>{dictionary.dataSent}</span> :
+            <Submit isSubmitting={isSubmitting} withTheme={withTheme} />
+          }
+        </fieldset>
       </form>
     </section >
   );

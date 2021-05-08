@@ -16,9 +16,9 @@ export const initialData: DataType[] = [
     {
         name: "department",
         type: "text",
-        pattern: "wooga.",
+        pattern: "tester.",
         isRequired: true,
-        placeholder: "type a department with format wooga."
+        placeholder: "type a department with format tester."
     },
     {
         name: "salary",
@@ -26,8 +26,26 @@ export const initialData: DataType[] = [
         minValue: 1000,
         isRequired: true,
         placeholder: "type an amount greater than 1000"
-    },
+    }
 ];
+
+export const extraFieldsData: DataType[] = [
+    {
+        name: "DOP",
+        type: "text",
+        isRequired: true,
+    },
+    {
+        name: "nationality",
+        type: "text",
+        isRequired: true,
+    },
+    {
+        name: "address",
+        type: "text",
+        isRequired: true,
+    }
+]
 
 export const mockFields: DataType[] = [
     {
@@ -46,11 +64,19 @@ export const mockFields: DataType[] = [
     },
     {
         name: "department",
-        value: "wooga.dev",
+        value: "tester.dev",
         type: "text",
-        pattern: "wooga.",
+        pattern: "tester.",
         isRequired: true,
-        placeholder: "type a department with format wooga."
+        placeholder: "type a department with format tester."
+    },
+    {
+        name: "salary",
+        value: 900,
+        type: "text",
+        minValue: 1000,
+        isRequired: true,
+        placeholder: "type an amount greater than 1000"
     },
     {
         name: "salary",

@@ -10,7 +10,7 @@ export default function App() {
     fieldsData: initialData,
     action: settings.action,
     method: settings.method,
-    withTheme: settings.withTheme,
+    withTheme: settings.withTheme
   };
   return (
     <div className="App">

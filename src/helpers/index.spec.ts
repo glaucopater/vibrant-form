@@ -19,8 +19,8 @@ describe("Helper", () => {
     });
 
     it("should test tag with a not required field", () => {
-        const result1 = getValidationMessage(dictionary.shouldMatchPattern, "pattern", "wooga.1");
-        expect(result1).toBe("This value should match 'wooga.1' ⚠️");
+        const result1 = getValidationMessage(dictionary.shouldMatchPattern, "pattern", "tester.1");
+        expect(result1).toBe("This value should match 'tester.1' ⚠️");
 
         const result2 = getValidationMessage(dictionary.shouldBeGreater, "minValue", "100");
         expect(result2).toBe("This value should be > 100 ⚠️");

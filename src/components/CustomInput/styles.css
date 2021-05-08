@@ -1,0 +1,21 @@
+:root {
+  --text-shadows: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  --box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  --custom-border-color: 1px solid rgba(255, 255, 255, 0.3);
+  --background-color: rgba(255, 255, 255, 0.3);
+  --white: #f1f1f1;
+}
+
+.customInputText {
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: var(--custom-border);
+  border-top: var(--custom-border);
+  box-shadow: var(--box-shadow);
+  color: black;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: var(--text-shadow);
+  outline: none;
+}

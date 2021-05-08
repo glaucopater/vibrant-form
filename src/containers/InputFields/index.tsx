@@ -1,6 +1,7 @@
 
 import React from "react";
 import Input from "../../components/Input";
+import { getClassNameProps } from "../../helpers";
 import { FormPropsType } from "../../types";
 import "./styles.css";
 
@@ -16,7 +17,7 @@ const InputFields: React.FC<FormPropsType> = ({ fieldsData, formErrors, componen
             }
         />);
 
-    return <div className={withTheme ? "vibrantFormInputFields" : ""}>{content}</div>;
+    return <div {...getClassNameProps("vibrantFormInputFields", withTheme)} >{content}</div>;
 }
 
 export default InputFields;

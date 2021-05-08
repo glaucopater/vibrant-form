@@ -45,11 +45,10 @@ export const validateFormField = (field: DataType) => {
 export const transformDataIntoFormField = (data?: DataType[]) => {
     if (!data) return {};
     const transformedData: TransformedDataType = {};
-    data.map(item => {
+    data.forEach(item => {
         transformedData[item.name] = item.value;
     });
     return transformedData;
-
 }
 
 export const isNullOrEmpty = (val: string | number | undefined) => {
@@ -72,4 +71,9 @@ export const validateForm = (formData: TransformedDataType, fieldsData: DataType
 
 export const getValidationMessage = (keyWord: string, templatedValue: string, valueToReplace: string | number) => {
     return keyWord.replace(`{{${templatedValue}}}`, valueToReplace.toString());
+}
+
+
+export const getClassNameProps = (className: string, withTheme?: boolean) => {
+    return withTheme ? { className: className } : null;
 }
