@@ -16,9 +16,9 @@ export const initialData: DataType[] = [
     {
         name: "department",
         type: "text",
-        pattern: "wooga.",
+        pattern: "tester.",
         isRequired: true,
-        placeholder: "type a department with format wooga."
+        placeholder: "type a department with format tester."
     },
     {
         name: "salary",
@@ -64,11 +64,11 @@ export const mockFields: DataType[] = [
     },
     {
         name: "department",
-        value: "wooga.dev",
+        value: "tester.dev",
         type: "text",
-        pattern: "wooga.",
+        pattern: "tester.",
         isRequired: true,
-        placeholder: "type a department with format wooga."
+        placeholder: "type a department with format tester."
     },
     {
         name: "salary",
